@@ -15,7 +15,8 @@ https://catalog.data.gov/dataset/global-significant-volcanic-eruptions-database-
 7. Integreate Redis
 8. Leaflet, flask, postgis
 
-
+Running on AIR machine.
+Using Python 3
 
 
 '''
@@ -30,7 +31,7 @@ from psycopg2.extensions import AsIs
 conn_string = "host='localhost' dbname='volcano_data' user='frank' password='B00tl3gged'"
 
 conn = psycopg2.connect(conn_string)
-print "Opened databse successfully"
+print("Opened databse successfully")
 
 #create a table in the postres db
 cur = conn.cursor()
@@ -39,7 +40,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS volcano_GVP(ID serial PRIMARY KEY, Vol
 	Start_Year VARCHAR(40), Start_Month VARCHAR(40), Start_Day VARCHAR(40),
 	End_Year VARCHAR(40), END_Month VARCHAR(40), END_Day VARCHAR(40),
 	Latitude VARCHAR(40), Longitude VARCHAR(40))''')
-print "Table created successfully"
+print("Table created successfully")
 
 #copy data from the GVP file
 sqlstr = "COPY volcano_GVP FROM STDIN DELIMITER ',' CSV"
@@ -50,5 +51,5 @@ conn.commit()
 #cur.execute(''' \COPY volcano_GVP (Volcano_Number, Volcano_Name, Eruption_Number, VEI) FROM 'C:/Users/frank.sedlar/Desktop/volcano/GVP.csv' DELIMITER ',' CSV HEADER ''')
 
 
-print "Records created successfully"
+print("Records created successfully")
 conn.close()
