@@ -18,6 +18,8 @@ https://catalog.data.gov/dataset/global-significant-volcanic-eruptions-database-
 Running on AIR machine.
 Using Python 3
 
+The cleaned excel/csv file is 'GVP_1'
+
 
 '''
 
@@ -44,7 +46,7 @@ print("Table created successfully")
 
 #copy data from the GVP file
 sqlstr = "COPY volcano_GVP FROM STDIN DELIMITER ',' CSV"
-with open('/Users/Phrank/Desktop/volcano/GVP_1.csv') as f:
+with open('/Users/i22864/Desktop/volcano/GVP_1.csv') as f:
 	cur.copy_expert(sqlstr, f)
 conn.commit()
 
